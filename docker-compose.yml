@@ -1,0 +1,15 @@
+version: "3"
+services:
+  app:
+    # Dockerfileをビルド
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      # バインドマウント
+      - ./:/workspace
+    tty: true
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
