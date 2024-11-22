@@ -12,7 +12,9 @@ services:
       # ホストのディレクトリとコンテナの/workspaceをマウント
       - node_modules:/workspace/node_modules
       - ./:/workspace:cached
-      - ~/.ssh/github_id_rsa:/root/.ssh/id_rsa
+      - type: bind
+        source: ~/.ssh
+        target: /home/node/.ssh
 
     entrypoint: "/bin/sh -c 'npm run dev'"
 
