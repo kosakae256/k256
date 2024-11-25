@@ -16,7 +16,7 @@ jobs:
 
     # GCP認証
     - name: Set up Google Cloud authentication
-      uses: google-github-actions/setup-gcloud@v4
+      uses: google-github-actions/setup-gcloud@v2
       with:
         key_file_json: ${{ secrets.GCP_SA_KEY }}
         project_id: third-technique-387000  # GCPプロジェクトIDに置き換えてください
