@@ -1,4 +1,4 @@
-name: Docker Build and Deploy to GCR
+name: Docker Build and Deploy to Artifact Registry
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
       uses: google-github-actions/setup-gcloud@v2
       with:
         key_file_json: ${{ secrets.GCP_SA_KEY }}
-        project_id: third-technique-387000  # GCPプロジェクトIDに置き換えてください
+        project_id: third-technique-387000
 
     # Dockerの設定
     - name: Set up Docker Buildx
@@ -28,9 +28,9 @@ jobs:
     # Dockerイメージをビルド
     - name: Build Docker image
       run: |
-        docker build -t gcr.io/third-technique-387000/portfolio-repo:$GITHUB_SHA .
-    
-    # DockerイメージをGCRにプッシュ
-    - name: Push Docker image to GCR
+        docker build -t us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:$GITHUB_SHA .
+
+    # DockerイメージをArtifact Registryにプッシュ
+    - name: Push Docker image to Artifact Registry
       run: |
-        docker push gcr.io/third-technique-387000/portfolio-repo:$GITHUB_SHA
+        docker push us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:$GITHUB_SHA
