@@ -22,16 +22,27 @@ jobs:
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
 
-      # Dockerの設定
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      # Dockerイメージをビルド
-      - name: Build Docker image
+      # 3. Artifact Registry への Docker 認証設定
+      - name: Configure Docker for Artifact Registry
         run: |
-          docker build -t us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:$GITHUB_SHA .
+          gcloud auth configure-docker us-docker.pkg.dev
 
-      # DockerイメージをArtifact Registryにプッシュ
-      - name: Push Docker image to Artifact Registry
+      # 4. Docker Compose を使用してビルド
+      - name: Build Docker image with Docker Compose
+        run: |
+          docker compose build
+
+      # 5. Docker Compose を使用してタグ付けしてプッシュ
+      - name: Tag and push Docker images
         run: |
           docker push us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:$GITHUB_SHA
+
+      # # Dockerイメージをビルド
+      # - name: Build Docker image
+      #   run: |
+      #     docker build -t us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:$GITHUB_SHA .
+
+      # # DockerイメージをArtifact Registryにプッシュ
+      # - name: Push Docker image to Artifact Registry
+      #   run: |
+      #     docker push us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:$GITHUB_SHA
