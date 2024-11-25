@@ -9,7 +9,6 @@ jobs:
   build-and-deploy:
     name: Setup, Build, Publish, and Deploy.
     runs-on: ubuntu-latest
-    secrets: inherit
 
     steps:
       - name: Checkout
