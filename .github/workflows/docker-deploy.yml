@@ -28,9 +28,9 @@ jobs:
     # Dockerイメージをビルド
     - name: Build Docker image
       run: |
-        docker build -t gcr.io/third-technique-387000/portfolio-container:$GITHUB_SHA .
+        docker build -t gcr.io/third-technique-387000/portfolio-repo:$GITHUB_SHA .
     
     # DockerイメージをGCRにプッシュ
     - name: Push Docker image to GCR
       run: |
-        docker push gcr.io/third-technique-387000/portfolio-container:$GITHUB_SHA
+        docker push gcr.io/third-technique-387000/portfolio-repo:$GITHUB_SHA
