@@ -20,7 +20,7 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0.4.0'
         with:
-          credentials_json: '${{ GCP_SA_KEY }}'
+          credentials_json: '${GCP_SA_KEY}'
 
       # Dockerの設定
       - name: Set up Docker Buildx
