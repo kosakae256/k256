@@ -16,15 +16,9 @@ jobs:
 
     # GCP認証
     - name: Set up Google Cloud authentication
-      uses: google-github-actions/setup-gcloud@v0
+      uses: google-github-actions/setup-gcloud@v2
       with:
         credentials_json: ${{ secrets.GCP_SA_KEY }}
-
-    - name: Setup Google Cloud
-      uses: google-github-actions/setup-gcloud@v1
-      with:
-        service_account_key: ${{ secrets.GCP_SA_KEY }}
-        project_id: third-technique-387000
 
     # Dockerの設定
     - name: Set up Docker Buildx
