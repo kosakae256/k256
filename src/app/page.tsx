@@ -20,7 +20,7 @@ export default function Home() {
             </code>
             .
           </li>
-          <li>This is a kosaka portfolio page! docker - v0.0.0</li>
+          <li>This is a kosaka portfolio page! docker - v0.0.1</li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
