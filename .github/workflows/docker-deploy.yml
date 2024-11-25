@@ -1,0 +1,36 @@
+name: Docker Build and Deploy to GCR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # リポジトリのコードをチェックアウト
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # GCP認証
+    - name: Set up Google Cloud authentication
+      uses: google-github-actions/setup-gcloud@v4
+      with:
+        key_file_json: ${{ secrets.GCP_SA_KEY }}
+        project_id: third-technique-387000  # GCPプロジェクトIDに置き換えてください
+
+    # Dockerの設定
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    # Dockerイメージをビルド
+    - name: Build Docker image
+      run: |
+        docker build -t gcr.io/third-technique-387000/portfolio-container:$GITHUB_SHA .
+    
+    # DockerイメージをGCRにプッシュ
+    - name: Push Docker image to GCR
+      run: |
+        docker push gcr.io/third-technique-387000/portfolio-container:$GITHUB_SHA
