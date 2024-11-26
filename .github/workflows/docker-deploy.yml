@@ -38,7 +38,7 @@ jobs:
       # 5. Docker Compose を使用してタグ付けしてプッシュ
       - name: Tag and push Docker images
         run: |
-          docker tag next_app:latest us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
+          docker tag k256-next_app:latest us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
           docker push us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
 
       # # Dockerイメージをビルド
