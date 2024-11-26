@@ -41,12 +41,16 @@ jobs:
           docker tag k256-next_app:latest us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
           docker push us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
 
-      # # Dockerイメージをビルド
-      # - name: Build Docker image
-      #   run: |
-      #     docker build -t us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:$GITHUB_SHA .
-
-      # # DockerイメージをArtifact Registryにプッシュ
-      # - name: Push Docker image to Artifact Registry
-      #   run: |
-      #     docker push us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:$GITHUB_SHA
+      # 6. DockerイメージをGCE上で動かす
+      - name: ssh and deploy
+        uses: appleboy/ssh-action@master # １
+        with: 
+          host: ${{ secrets.SSH_HOST }} # ホスト名
+          username: ${{ secrets.SSH_USERNAME }} # SSH ユーザ名
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # 秘密鍵の内容
+          port: ${{ secrets.SSH_PORT }} # ポート番号
+          passphrase: ${{ secrets.SSH_PASSPHRASE }} # パスフレーズ
+          debug: true
+          script: |
+            docker rm portfolio-container
+            docker run -d -p ${{ PORT }}:${{ PORT }} --name portfolio-container us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
