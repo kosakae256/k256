@@ -53,4 +53,4 @@ jobs:
           debug: true
           script: |
             docker rm portfolio-container
-            docker run -d -p ${{ PORT }}:${{ PORT }} --name portfolio-container us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
+            docker run -d -p ${{ secrets.PORT }}:${{ secrets.PORT }} --name portfolio-container us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
