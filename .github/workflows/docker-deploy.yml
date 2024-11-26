@@ -28,6 +28,7 @@ jobs:
           gcloud auth configure-docker us-docker.pkg.dev
 
       # 4. Docker Compose を使用してビルド
+      - uses: actions/checkout@v3
       - name: Build Docker image with Docker Compose
         run: |
           docker compose -f docker-compose.yml build
