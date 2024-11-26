@@ -30,7 +30,7 @@ jobs:
       # 4. Docker Compose を使用してビルド
       - name: Build Docker image with Docker Compose
         run: |
-          docker compose -f docker-compose.yaml build
+          docker compose -f docker-compose.yml build
 
       # 5. Docker Compose を使用してタグ付けしてプッシュ
       - name: Tag and push Docker images
