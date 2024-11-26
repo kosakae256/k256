@@ -9,7 +9,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <DefaultLayout children={children} />
+        <DefaultLayout>
+          {children}
+        </DefaultLayout>
       </body>
     </html>
   );
