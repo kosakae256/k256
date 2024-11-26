@@ -52,5 +52,6 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }} # パスフレーズ
           debug: true
           script: |
+            docker stop portfolio-container
             docker rm portfolio-container
             docker run -d -p ${{ secrets.PORT }}:${{ secrets.PORT }} --name portfolio-container us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
