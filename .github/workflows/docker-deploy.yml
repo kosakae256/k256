@@ -54,4 +54,5 @@ jobs:
           script: |
             docker stop portfolio-container
             docker rm portfolio-container
+            docker pull us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
             docker run -d -p ${{ secrets.PORT }}:${{ secrets.PORT }} --name portfolio-container us-docker.pkg.dev/third-technique-387000/portfolio-repo/portfolio-image:latest
