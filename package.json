@@ -12,6 +12,7 @@
   "dependencies": {
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
+    "react-device-detect": "^2.2.3",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-resizable-panels": "^2.1.7"
   },
