@@ -1,5 +1,5 @@
-import DefaultLayout from "@/components/layout/layout";
-import "./globals.css";
+import DefaultLayout from '@/components/layout/layout';
+import './globals.css';
 
 export default function RootLayout({
   children,
@@ -9,9 +9,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <DefaultLayout>
-          {children}
-        </DefaultLayout>
+        <DefaultLayout>{children}</DefaultLayout>
       </body>
     </html>
   );
