@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { LuPanelLeft } from "react-icons/lu";
-import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
-import { isMobile as detectMobile } from "react-device-detect";
-import { useEffect, useState } from "react";
-import { IoIosArrowUp } from "react-icons/io";
-import Filelist from "./filelist";
-import Terminal from "./terminal";
+import { LuPanelLeft } from 'react-icons/lu';
+import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
+import { isMobile as detectMobile } from 'react-device-detect';
+import { useEffect, useState } from 'react';
+import { IoIosArrowUp } from 'react-icons/io';
+import Filelist from './filelist';
+import Terminal from './terminal';
 
 export default function DefaultLayout({
   children,
@@ -15,7 +15,7 @@ export default function DefaultLayout({
 }>) {
   const [isMobile, setIsMobile] = useState<null | boolean>(null);
   const [showLeftContainer, setShowLeftContainer] = useState<boolean>(true);
-  const [showTerminal, setshowTerminal] = useState<boolean>(false);
+  const [showTerminal, setshowTerminal] = useState<boolean>(true);
   const defaultLeftContainerSize = 20;
   const defaultTerminalSize = 20;
 
@@ -55,7 +55,7 @@ export default function DefaultLayout({
               defaultSize={defaultLeftContainerSize}
               maxSize={90}
               minSize={15}
-              className={showLeftContainer ? "" : "hidden"}
+              className={showLeftContainer ? '' : 'hidden'}
             >
               <div className="h-full flex flex-col">
                 <div className="flex-grow bg-white border-b border-gray-200">
@@ -107,7 +107,7 @@ export default function DefaultLayout({
                   defaultSize={defaultTerminalSize}
                   maxSize={90}
                   minSize={10}
-                  className={showTerminal ? "bg-white" : "hidden"}
+                  className={showTerminal ? 'bg-white' : 'hidden'}
                   onResize={(size) => {
                     console.log(size);
                   }}
