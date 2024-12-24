@@ -1,4 +1,3 @@
-import DefaultLayout from '@/components/layout/layout';
 import './globals.css';
 
 export default function RootLayout({
@@ -7,10 +6,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <DefaultLayout>{children}</DefaultLayout>
-      </body>
+    <html lang="ja">
+      <body className="bg-gray-100">{children}</body>
     </html>
   );
 }
