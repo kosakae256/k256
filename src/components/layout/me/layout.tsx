@@ -8,7 +8,7 @@ import { IoIosArrowUp } from 'react-icons/io';
 import Filelist from './filelist';
 import Terminal from './terminal';
 
-export default function DefaultLayout({
+export default function MeLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
