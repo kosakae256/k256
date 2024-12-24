@@ -1,9 +1,7 @@
 export default function Karaoke() {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
-      <h2 className="font-bold text-4xl text-blue-500">k256.dev</h2>
-      <h2 className="font-bold text-4xl text-blue-500">first page!</h2>
-      <h2 className="font-bold text-xl">Preparing...</h2>
+      <p>カラオケ用ページ</p>
     </div>
   );
 }
