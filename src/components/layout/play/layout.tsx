@@ -11,7 +11,7 @@ export default function PlayLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [sideBar, setSideBar] = useState<boolean>(true);
+  const [sideBar, setSideBar] = useState<boolean>(false);
   return (
     <body className="bg-gray-100">
       <div className="flex flex-col relative h-screen">
