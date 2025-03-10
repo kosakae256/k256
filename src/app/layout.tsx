@@ -5,9 +5,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="ja">
-      <body className="bg-gray-100">{children}</body>
-    </html>
-  );
+  return <html lang="ja">{children}</html>;
 }
