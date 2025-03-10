@@ -1,5 +1,6 @@
 'use client';
 
+import Canvas from '@/features/play/karaoke/canvas';
 import { PitchDetector } from 'pitchy';
 import { useEffect, useRef, useState } from 'react';
 
@@ -137,6 +138,7 @@ export default function Karaoke() {
           {clarity !== null ? `${clarity} %` : '未検出'}
         </p>
       </div>
+      <Canvas />
     </div>
   );
 }
